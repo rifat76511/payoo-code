@@ -57,11 +57,11 @@
             </p>
         </section>
         <section class="w-11/12 mx-auto grid grid-cols-3 gap-4">
-            <button class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
+            <button onclick="showOnly('add-money')" class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
                 <img src="./assets/opt-1.png" alt="">
                 <p>Add Money</p>
             </button>
-            <button class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
+            <button onclick="showOnly('cash-out')" class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
                 <img src="./assets/opt-2.png" alt="">
                 <p>Cashout</p>
             </button>
@@ -77,12 +77,44 @@
                 <img src="./assets/opt-5.png" alt="">
                 <p>Pay Bill</p>
             </button>
-            <button class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
+            <button onclick="showOnly('history')" class="btn flex-col py-12 rounded-xl btn-primary btn-soft">
                 <img src="./assets/opt-6.png" alt="">
                 <p>Transactions</p>
             </button>
         </section>
-        <section class="w-11/12 mx-auto">
+        <section id='add-money' class="w-11/12 mx-auto">
+            <div>
+                <h2 class="font-semibold text-[18px] p-3 ">Add Money</h2>
+            </div>
+            <div>
+                <div class="card bg-base-100  rounded-2xl mx-auto w-full max-w-sm shrink-0 shadow">
+                    <div class="card-body">
+                        <fieldset class="fieldset">
+                            <label class="label font-bold text-neutral">Select A Bank</label>
+                            <select id="add-money-bank" class="select rounded-full bg-[#F4F5F7] text-neutral/50 w-full">
+                                <option disabled selected>Select bank</option>
+                                <option value="DBBA">DBBA</option>
+                                <option value="IBBA">IBBA</option>
+                                <option value="CITY">City Bank</option>
+                            </select>
+                            <label class="label font-bold text-neutral">Bank Account Number</label>
+                            <input type="text" id="bank-number" maxlength="11" minlength="11"
+                                class="input rounded-full bg-[#F4F5F7] w-full"
+                                placeholder="Enter 11 digit account number" />
+                            <label class="label font-bold text-neutral">Amount to Add</label>
+                            <input type="number" id="add-amount" class="input rounded-full bg-[#F4F5F7] w-full"
+                                placeholder="Add Amount to withdraw" />
+                            <label class="label font-bold text-neutral ">Pin Number</label>
+                            <input type="password" id="add-pin" maxlength="4" minlength="4"
+                                class="input bg-[#F4F5F7] rounded-full w-full" placeholder="Enter 4 digit pin number" />
+                            <div></div>
+                            <button id="add-btn" class="btn btn-primary rounded-full mt-4">Add Money</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id='cash-out' class="w-11/12 mx-auto">
             <div>
                 <h2 class="font-semibold text-[18px] p-3 ">Cash out</h2>
             </div>
@@ -94,8 +126,8 @@
                             <input type="text" id="agent-number" maxlength="11" minlength="11"
                                 class="input rounded-full bg-[#F4F5F7] w-full" placeholder="Enter 11 digit number" />
                             <label class="label font-bold text-neutral">Amount</label>
-                            <input type="number" id="amount-withdraw"
-                                class="input rounded-full bg-[#F4F5F7] w-full" placeholder="Enter amount to withdraw" />
+                            <input type="number" id="amount-withdraw" class="input rounded-full bg-[#F4F5F7] w-full"
+                                placeholder="Enter amount to withdraw" />
                             <label class="label font-bold text-neutral ">4 Digit Pin</label>
                             <input type="password" id="withdraw-pin" maxlength="4" minlength="4"
                                 class="input bg-[#F4F5F7] rounded-full w-full" placeholder="Enter 4 Digit Pin" />
@@ -106,7 +138,15 @@
                 </div>
             </div>
         </section>
+        <section id="history" class="mt-8 w-11/12 mx-auto">
+             <h2 class="font-semibold text-[18px] p-3 ">Transaction History</h2>
+            <div id="history-contain" class=" p-3 space-y-2"> 
+                 
+            </div>
+        </section>
     </main>
+    <script src="./script/masing.js"></script>
+    <script src="./script/addmoney.js"></script>
     <script src="./script/cashout.js"></script>
 </body>
 
